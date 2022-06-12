@@ -1,0 +1,19 @@
+<!-- all ejs files should be under views folder -->
+<!-- Header and footers are partials coz they complete the website partially -->
+<!-- ForEach loop is used to interate array's object one by one,
+     remember to see each command if it's html or javascript and then surround them with tags  -->
+    <!-- Express allows us to extract the parameters that the user searched for i.e. if the user searched for: www.blogs/news/:topics -->
+    <!-- Such as app.get("/news/:topic") with req.params.topic 
+    So that we don't have to create new route for each topic dynamically-->
+<%- include('partials/header'); -%> 
+<h1>Home</h1>
+<p> <%= startingContent %> </p> 
+<% console.log(posts); %>
+
+<!-- for(var i=0; i<posts.length; i++) -->
+<% posts.forEach(function(post){ %>
+    <h1><%= post.title %></h1>
+    <p><%= post.content.substring(0, 100) + " ..." %></p>
+<% }) %>
+
+<%- include('partials/footer'); -%>
